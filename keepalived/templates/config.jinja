@@ -14,7 +14,7 @@
       {%- set indent = indent + 2 -%}
     {%- endif -%}
     {%- if data is mapping -%}
-      {%- for item in data|dictsort -%}
+      {%- for item in data|dictsort|reverse -%}
         {%- if item[key] in carryovers -%}
           {{- keepalived_config(item[value], carryover=item[key], indent=indent) -}}
         {%- else -%}
